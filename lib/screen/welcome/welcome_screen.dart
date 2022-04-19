@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_ux_assignment4/screen/registration/registration_screen.dart';
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -13,14 +14,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       body: Stack(
         children: [
           Container(
-          child: Image.network("https://www.deliveryhero.com/wp-content/uploads/2021/09/20210908-Newsroom-Gorillas-1200x660.jpg",
+            color: Colors.black,
+          child: Image.network("https://blog.malwarebytes.com/wp-content/uploads/2020/08/shutterstock_1718757049.jpg",
           height: 830,
-          width: 380,
+          //width: 380,
           fit: BoxFit.cover,),
 
     ),
           Positioned(
-              bottom: 210,
+              bottom: 50,
               left: 85,
               child: Container(
                 child: Center(
@@ -30,10 +32,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       Container(
                         height: 100,
                         width: 100,
-                        child: Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSZiyV66dsx_dcd11qUyvL7SB0LP1jnWDixw&usqp=CAU"),
+                        child: Image.network("https://www.pngitem.com/pimgs/m/111-1116087_carrot-black-and-white-carrot-icon-hd-png.png"),
                       ),
+
                       Text('Welcome',style: TextStyle(color: Colors.white,
                         fontSize: 40,
+
                       ),),
                       Text('to our store',style: TextStyle(
                         color: Colors.white,
@@ -41,7 +45,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       ),),
                       SizedBox(height: 30,),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => RegistrationScreen()),
+                          );
+                        },
                         child: Text('Get Started'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.greenAccent.shade400,
@@ -51,6 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           ),
                         ),
                       ),
+
                     ],
                   ),
                 ),
