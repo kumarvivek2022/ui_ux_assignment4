@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_ux_assignment4/screen/auth_screen/auth_screen.dart';
+import 'package:ui_ux_assignment4/screen/login_screen/login_screen.dart';
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
 
@@ -36,8 +37,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               margin: EdgeInsets.all(20),
               child: ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(
-                    context,
+                  Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AuthScreen()),
                   );
                 },
@@ -64,7 +64,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           width: double.infinity,
           margin: EdgeInsets.all(20),
            child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
               icon: Icon(
                 Icons.email,
                 size: 25.0,

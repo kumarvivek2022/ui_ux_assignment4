@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:country_code_picker/country_code_picker.dart';
-import 'package:ui_ux_assignment4/screen/home_screen/home_screen.dart';
-import 'package:ui_ux_assignment4/screen/registration/registration_screen.dart';
+import 'package:ui_ux_assignment4/screen/bottom_navigation_screen//bottom_navigation_screen.dart';
+import 'package:ui_ux_assignment4/screen/registration_screen//registration_screen.dart';
 enum MobileVerificationState {
   SHOW_MOBILE_FORM_STATE,
   SHOW_OTP_FORM_STATE,
@@ -30,7 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
       await _auth.signInWithCredential(phoneAuthCredential);
       showLoading = false;
       if(authCredential?.user !=null) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) =>BottomNavigationScreen()));
       }
     } on FirebaseAuthException catch (e) {
      showLoading = false;
@@ -51,6 +50,7 @@ class _AuthScreenState extends State<AuthScreen> {
             hintText: "Enter phone number",
           ),
         ),
+
         SizedBox(height: 20,),
         FlatButton(
             onPressed: () async {
@@ -95,7 +95,7 @@ class _AuthScreenState extends State<AuthScreen> {
   getOtpFormWidget(context){
     return Column(
       children: [
-        Text('Enter your mobile number',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+        Text('Enter your 4-digit code',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
         SizedBox(height: 20,width: 30,),
         TextField(
           controller: otpController,
