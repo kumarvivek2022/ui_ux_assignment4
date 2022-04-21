@@ -11,7 +11,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('explore_screen Screen'),
+        child: Text('Explore Screen'),
       ),
     );
   }

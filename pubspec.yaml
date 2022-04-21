@@ -27,9 +27,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_native_splash: ^2.1.6
   flutter:
     sdk: flutter
-
+  firebase_phone_auth_handler: ^1.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -37,6 +38,7 @@ dependencies:
   country_code_picker: ^2.0.2
   firebase_core: ^1.14.1
   firebase_auth: ^3.3.14
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:

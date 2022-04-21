@@ -29,9 +29,13 @@ class _LoginScreenState extends State<LoginScreen> {
           
           Padding(
             padding: const EdgeInsets.all(50),
-            child: Image.network('https://media.istockphoto.com/vectors/carrot-flat-icon-vegetable-and-diet-vector-graphics-a-colorful-solid-vector-id694934682?k=20&m=694934682&s=612x612&w=0&h=y6S6_EZ6OeIOiPIOKwpc_88Z5MQ85cNuU10PavNiYZo=',
-                height: 200,
+            child: Container(
+              height: 100,
+              width: 100,
+              child: Image.network('https://media.istockphoto.com/vectors/carrot-flat-icon-vegetable-and-diet-vector-graphics-a-colorful-solid-vector-id694934682?k=20&m=694934682&s=612x612&w=0&h=y6S6_EZ6OeIOiPIOKwpc_88Z5MQ85cNuU10PavNiYZo=',
+                  height: 250,
       ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

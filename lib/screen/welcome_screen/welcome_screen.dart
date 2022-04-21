@@ -34,7 +34,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         width: 100,
                         child: Image.network("https://www.pngitem.com/pimgs/m/111-1116087_carrot-black-and-white-carrot-icon-hd-png.png"),
                       ),
-
                       Text('Welcome',style: TextStyle(color: Colors.white,
                         fontSize: 40,
 
@@ -43,7 +42,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         color: Colors.white,
                         fontSize: 40,
                       ),),
+                      Text('Get your groceries in as fast as one hour',style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),),
                       SizedBox(height: 30,),
+                      Container(
+                        height: 60,
+                        width: double.infinity,
+                      ),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
@@ -56,7 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           primary: Colors.greenAccent.shade400,
                           fixedSize: Size(250, 50),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(17)
+                            borderRadius: BorderRadius.circular(20.0)
                           ),
                         ),
                       ),
@@ -64,7 +71,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ],
                   ),
                 ),
-              ))
+              ),
+          ),
     ]
     ),);
   }
