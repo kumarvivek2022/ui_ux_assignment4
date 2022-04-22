@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_ux_assignment4/screen/registration_screen/registration_screen.dart';
 class AccountScreen extends StatefulWidget {
@@ -43,6 +44,33 @@ class _AccountScreenState extends State<AccountScreen> {
         toolbarHeight: 100,
         elevation: 0,
         backgroundColor: Colors.white,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: CircleAvatar(
+
+            radius: 30.0,
+
+            backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3wZaPn5nItROvWI0eKlwDcVjyi5ni1sAMPg&usqp=CAU",
+
+              ),
+          ),
+
+        ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text("Afsar Hossen", style: TextStyle(
+                    fontSize:20,fontWeight:FontWeight.bold,color: Colors.black),),
+                SizedBox(width: 10,),
+                Icon(Icons.edit, color: Colors.black,),
+              ],
+            ),
+            Text("Imshubho90@gmail.com", style: TextStyle(
+                fontSize: 13,fontWeight: FontWeight.normal,color: Colors.black),),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -79,8 +107,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.green,
-                      // fixedSize: const Size(330, 60),
+                      primary: Colors.black.withOpacity(0.1),
+                      onPrimary: Colors.green,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),

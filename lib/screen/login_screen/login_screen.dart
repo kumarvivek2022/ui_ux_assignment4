@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_ux_assignment4/screen/sign_up_screen/sign_up_screen.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
           TextField(
             controller: emailController,
             decoration: InputDecoration(
-                hintText: 'name@mail.com',
+                hintText: 'Imshubho90@mail.com',
                 //prefixIcon: const Icon(Icons.person),
                 suffixIcon: emailController.text.isEmpty
                     ?Container(height: 0,width: 0,)
@@ -95,11 +95,87 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: (value) => setState(() => this.password = value),
+              onSubmitted: (value) => setState(() => this.password = value),
+              decoration: InputDecoration(
+                  hintText: 'password',
+                  //prefixIcon: const Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    icon: isPasswordVisible
+                        ?const Icon(Icons.visibility_off)
+                        :const Icon(Icons.visibility),
+                    onPressed: () =>
+                        setState(() => isPasswordVisible = !isPasswordVisible),
+                  ),
+                  //filled: true,
+                  //fillColor: Colors.purple.shade100,
+                  //border: OutlineInputBorder(
+                    //borderRadius: BorderRadius.circular(30),
+                    //borderSide: BorderSide.none,
+                  )
+              ),
+          ),
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50.0),
+              child: Text('Forgot Password?'),
+            ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            child: Container(
+              height: 60,
+              width: double.infinity,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.green,
+                    onPrimary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  onPressed: ()  {},
+                  child: Text("Log In")),
+            ),
+          ),
+          SizedBox(height: 10,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Don\'t have an account?'),
+              TextButton(
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                  );
+                },
+              ),
+
+            ],
+          ),
 
 
-        ]
+
+            //obscureText: isPasswordVisible,
+          ]
       ),
     ),
+
+
+
+
     );
+
   }
 }

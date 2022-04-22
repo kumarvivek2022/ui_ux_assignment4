@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ui_ux_assignment4/helpers/utils.dart';
+
 
 final List<String> imagesList = [
   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeEeZXg4YaVLRnmSmkc9Y4ikDhzKfDTPuk8Q&usqp=CAU',
@@ -18,6 +21,8 @@ class ShopScreen extends StatefulWidget {
 class _ShopScreenState extends State<ShopScreen> {
   int _currentIndex = 0;
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +33,7 @@ class _ShopScreenState extends State<ShopScreen> {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-               padding: const EdgeInsets.all(50),
+               padding: const EdgeInsets.only(top: 50),
                child: Container(
           height: 80,
           width: 80,
@@ -37,6 +42,10 @@ class _ShopScreenState extends State<ShopScreen> {
           ),
         ),
       ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Dhaka,Banasssre'),
+              ),
 
               //SizedBox(height: 10,),
 
@@ -131,12 +140,29 @@ class _ShopScreenState extends State<ShopScreen> {
                  // elevation: 2,
                   backgroundColor: Colors.white),
                     ),
-
                 ],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 185,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: Categories.length,
+                    itemBuilder: (context,int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Image.network(Categories[index].urlImage,
+                          height: 100,width: 150,fit: BoxFit.cover,),
+                      ),
+                    );
+                    }),
               )
-      ],
-    ),
+    ],
+        ),
     ),
     );
+
+
   }
 }
