@@ -1,7 +1,9 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ui_ux_assignment4/helpers/utils.dart';
+import 'package:ui_ux_assignment4/model_class/model_class.dart';
 
 
 final List<String> imagesList = [
@@ -44,7 +46,13 @@ class _ShopScreenState extends State<ShopScreen> {
       ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Dhaka,Banasssre'),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.location_on),
+                    Text('Dhaka,Banasssre'),
+                  ],
+                ),
               ),
 
               //SizedBox(height: 10,),
@@ -56,66 +64,74 @@ class _ShopScreenState extends State<ShopScreen> {
                     fillColor: Colors.green,
                     prefixIcon: Icon(Icons.search,color: Colors.black,),
                     hintText: "Search Store",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                   // border: OutlineInputBorder(
+                      //borderRadius: BorderRadius.circular(20),
+                   // ),
                   ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    // enlargeCenterPage: true,
-                    //scrollDirection: Axis.vertical,
-                    onPageChanged: (index, reason) {
-                      setState(
-                            () {
-                          _currentIndex = index;
-                        },
-                      );
-                    },
-                  ),
-                  items: imagesList
-                      .map(
-                        (item) => Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Stack(
-                        children: [
-                          Container(
-                            height: 150,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                item,
-                                fit: BoxFit.cover,
-                                width: double.infinity,
+                child: Stack(
+                  children : [ 
+                    CarouselSlider(
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      // enlargeCenterPage: true,
+                      //scrollDirection: Axis.vertical,
+                      onPageChanged: (index, reason) {
+                        setState(
+                              () {
+                            _currentIndex = index;
+                          },
+                        );
+                      },
+                    ),
+                    items: imagesList
+                        .map(
+                          (item) => Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Stack(
+                          children: [
+                            Container(
+                              height: 150,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                  item,
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                ),
                               ),
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: imagesList.map((urlOfItem) {
-                              int index = imagesList.indexOf(urlOfItem);
-                              return Container(
-                                width: 10.0,
-                                height: 10.0,
-                                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: _currentIndex == index
-                                      ? Color.fromRGBO(0, 0, 0, 0.8)
-                                      : Color.fromRGBO(0, 0, 0, 0.3),
-                                ),
-                              );
-                            }).toList(),
-                          )
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  )
-                      .toList(),
+                    )
+                        .toList(),
+                  ),
+                    Positioned(
+                      bottom: 60,
+                        left: 160,
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: imagesList.map((urlOfItem) {
+                        int index = imagesList.indexOf(urlOfItem);
+                        return Container(
+                          width: 10.0,
+                          height: 10.0,
+                          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: _currentIndex == index
+                                ? Color.fromRGBO(0, 0, 0, 0.8)
+                                : Color.fromRGBO(0, 0, 0, 0.3),
+                          ),
+                        );
+                      }).toList(),
+                    )
+                    )
+                  ]
                 ),
               ),
               Row(
@@ -144,7 +160,8 @@ class _ShopScreenState extends State<ShopScreen> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 185,
+                height: 200,
+                decoration: BoxDecoration(),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: Categories.length,
@@ -152,13 +169,204 @@ class _ShopScreenState extends State<ShopScreen> {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        child: Image.network(Categories[index].urlImage,
-                          height: 100,width: 150,fit: BoxFit.cover,),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.grey)
+                        ),
+                        child: Column(
+                          children: [
+                            Image.network(Categories[index].urlImage,
+                              height: 100,width: 150,fit: BoxFit.cover,),
+                            Text(Categories[index].title,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                            Text(Categories[index].subtitle,style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal),),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(Categories[index].price,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                            SizedBox(width: 15,),
+                            FloatingActionButton(
+                              mini: true,
+                              child: Icon(Icons.add),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
+
+                                backgroundColor: Colors.green,
+
+                                onPressed: () {}
+                            )
+                              ],
+                            )
+                          ],
+                        ),
+                        
                       ),
                     );
                     }),
-              )
-    ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text('Best Selling',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  ),
+                  TextButton(
+
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "See all",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        primary: Colors.green,
+                        // elevation: 2,
+                        backgroundColor: Colors.white),
+                  ),
+                ],
+              ),
+      Container(
+        width: MediaQuery.of(context).size.width,
+        height: 200,
+        decoration: BoxDecoration(),
+        child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: Categories.length,
+        itemBuilder: (context,int index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.grey)
+              ),
+              child: Column(
+                children: [
+                  Image.network(Categories[index].vegimage,
+                    height: 100, width: 150, fit: BoxFit.cover,),
+                  Text(Categories[index].vegtitle, style: TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),),
+
+                ],
+
+              ),
+            ),
+          );
+        }),
+    ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text('Groceries',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                  ),
+                  TextButton(
+
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        "See all",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                        primary: Colors.green,
+                        // elevation: 2,
+                        backgroundColor: Colors.white),
+                  ),
+                ],
+              ),
+      Container(
+        // width: MediaQuery.of(context).size.width,
+        height: 100,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: Categories.length,
+            itemBuilder: (context,int index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 200,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Color(int.parse(Categories[index].colorcode),),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          child: ClipRRect(
+                              child: Image.network(Categories[index].groceryimage,fit: BoxFit.cover,),
+                          borderRadius: BorderRadius.circular(10),),
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                      Text(Categories[index].grocerytitle, style: TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.bold),),
+                    ],
+                  ),
+                ),
+              );
+            }),
+
+      ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 200,
+                decoration: BoxDecoration(),
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: Categories.length,
+                    itemBuilder: (context,int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey)
+                          ),
+                          child: Column(
+                            children: [
+                              Image.network(Categories[index].nonvegimage,
+                                height: 100,width: 150,fit: BoxFit.cover,),
+                              Text(Categories[index].nonvegtitle,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(Categories[index].subtitle,style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal),),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(Categories[index].nonvegprice,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                                  SizedBox(width: 15,),
+                                  FloatingActionButton(
+                                      mini: true,
+                                      child: Icon(Icons.add),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16.0))),
+
+                                      backgroundColor: Colors.green,
+
+                                      onPressed: () {}
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+
+                        ),
+                      );
+                    }),
+              ),
+
+
+
+
+            ],
         ),
     ),
     );
