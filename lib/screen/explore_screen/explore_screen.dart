@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_ux_assignment4/helpers/utils2.dart';
 import 'package:ui_ux_assignment4/model_class/mode_class2.dart';
+import 'package:ui_ux_assignment4/screen/explore_screen/explore_screen_details.dart';
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({Key? key}) : super(key: key);
 
@@ -49,8 +50,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                     child: InkWell(
                       onTap: () {
-                        //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
-                            //ExploreDetailsScreen(items: items[index],)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+                            ExploreScreenDetails(Explores : Explores[index],)));
                       },
                       child: Container(
                         decoration: BoxDecoration(
