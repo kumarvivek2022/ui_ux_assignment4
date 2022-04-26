@@ -19,59 +19,55 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           height: 830,
           //width: 380,
           fit: BoxFit.cover,),
-
-    ),
+          ),
           Positioned(
-              bottom: 50,
-              left: 85,
-              child: Container(
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        child: Image.network("https://www.pngitem.com/pimgs/m/111-1116087_carrot-black-and-white-carrot-icon-hd-png.png"),
-                      ),
-                      Text('Welcome',style: TextStyle(color: Colors.white,
-                        fontSize: 40,
+            bottom: 250,
+            left: 150,
+            child: Container(
+              height: 100,
+              width: 100,
+              child: Image.network("https://www.pngitem.com/pimgs/m/111-1116087_carrot-black-and-white-carrot-icon-hd-png.png"),
+            ),
+          ),
+          Positioned(
+            bottom: 150,
+            left: 100,
+            child: Container(
+              child: Text('Welcome\nto our store',textAlign: TextAlign.center  ,style: TextStyle(color: Colors.white,
+                fontSize: 40,
 
-                      ),),
-                      Text('to our store',style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 40,
-                      ),),
-                      Text('Get your groceries in as fast as one hour',style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                      ),),
-                      SizedBox(height: 30,),
-                      Container(
-                        height: 60,
-                        width: double.infinity,
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => RegistrationScreen()),
-                          );
-                        },
-                        child: Text('Get Started'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.greenAccent.shade400,
-                          fixedSize: Size(250, 50),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0)
-                          ),
-                        ),
-                      ),
-
-                    ],
-                  ),
+              ),),
+            ),
+          ),
+          Positioned(
+            bottom: 120,
+            left: 100,
+            child: Container(
+              child: Text('Get your groceries in as fast as one hour',style: TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+              ),),
+            ),
+          ),
+          Positioned(
+            bottom: 50,
+            left: 70,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegistrationScreen()),
+                );
+              },
+              child: Text('Get Started'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.greenAccent.shade400,
+                fixedSize: Size(250, 50),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)
                 ),
               ),
+            ),
           ),
     ]
     ),);

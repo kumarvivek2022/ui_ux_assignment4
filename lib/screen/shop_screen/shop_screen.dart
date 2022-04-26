@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ui_ux_assignment4/helpers/utils.dart';
 import 'package:ui_ux_assignment4/model_class/model_class.dart';
+import 'package:ui_ux_assignment4/screen/description_screen/description_screen.dart';
 
 
 final List<String> imagesList = [
@@ -37,8 +38,8 @@ class _ShopScreenState extends State<ShopScreen> {
               Padding(
                padding: const EdgeInsets.only(top: 50),
                child: Container(
-          height: 80,
-          width: 80,
+          height: 60,
+          width: 60,
           child: Image.network('https://media.istockphoto.com/vectors/carrot-flat-icon-vegetable-and-diet-vector-graphics-a-colorful-solid-vector-id694934682?k=20&m=694934682&s=612x612&w=0&h=y6S6_EZ6OeIOiPIOKwpc_88Z5MQ85cNuU10PavNiYZo=',
             fit: BoxFit.cover,
           ),
@@ -57,61 +58,69 @@ class _ShopScreenState extends State<ShopScreen> {
 
               //SizedBox(height: 10,),
 
+
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
                   decoration: InputDecoration(
-                    fillColor: Colors.green,
+                    filled: true,
+                    fillColor: Colors.grey.shade300,
+                    focusColor: Colors.grey.shade300,
                     prefixIcon: Icon(Icons.search,color: Colors.black,),
                     hintText: "Search Store",
-                   // border: OutlineInputBorder(
-                      //borderRadius: BorderRadius.circular(20),
-                   // ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
               ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Stack(
                   children : [ 
-                    CarouselSlider(
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      // enlargeCenterPage: true,
-                      //scrollDirection: Axis.vertical,
-                      onPageChanged: (index, reason) {
-                        setState(
-                              () {
-                            _currentIndex = index;
-                          },
-                        );
-                      },
-                    ),
-                    items: imagesList
-                        .map(
-                          (item) => Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 150,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  item,
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
+                    Container(
+                      height: 150,
+                      width: double.infinity,
+                      child: CarouselSlider(
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        // enlargeCenterPage: true,
+                        //scrollDirection: Axis.vertical,
+                        onPageChanged: (index, reason) {
+                          setState(
+                                () {
+                              _currentIndex = index;
+                            },
+                          );
+                        },
+                      ),
+                      items: imagesList
+                          .map(
+                            (item) => Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Stack(
+                            children: [
+                              Container(
+                                height: 150,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.network(
+                                    item,
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    )
-                        .toList(),
+                      )
+                          .toList(),
                   ),
+                    ),
                     Positioned(
-                      bottom: 60,
+                      bottom: 10,
                         left: 160,
                         child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -175,8 +184,16 @@ class _ShopScreenState extends State<ShopScreen> {
                         ),
                         child: Column(
                           children: [
-                            Image.network(Categories[index].urlImage,
-                              height: 100,width: 150,fit: BoxFit.cover,),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                height: 80,
+                                width: 140,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                child: Image.network(Categories[index].urlImage,),
+                              ),
+                            ),),
                             Text(Categories[index].title,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                             Text(Categories[index].subtitle,style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal),),
                             Row(
@@ -195,6 +212,7 @@ class _ShopScreenState extends State<ShopScreen> {
                             )
                               ],
                             )
+
                           ],
                         ),
                         
@@ -227,29 +245,48 @@ class _ShopScreenState extends State<ShopScreen> {
                 ],
               ),
       Container(
-        width: MediaQuery.of(context).size.width,
+        //width: MediaQuery.of(context).size.width,
         height: 200,
-        decoration: BoxDecoration(),
+        //decoration: BoxDecoration(),
         child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: Categories.length,
         itemBuilder: (context,int index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey)
-              ),
-              child: Column(
-                children: [
-                  Image.network(Categories[index].vegimage,
-                    height: 100, width: 150, fit: BoxFit.cover,),
-                  Text(Categories[index].vegtitle, style: TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold),),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => DescriptionScreen(Categories: Categories[index]),
+                ));
+              },
+              child: Container(
+                height: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.grey)
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 100,
+                        width: 140,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Image.network(Categories[index].vegimage,fit: BoxFit.cover,),
+                            )),
 
-                ],
+                      ),
+                    ),
+                    Text(Categories[index].vegtitle, style: TextStyle(
+                        fontSize: 15, fontWeight: FontWeight.bold),),
 
+                  ],
+
+                ),
               ),
             ),
           );
@@ -294,7 +331,7 @@ class _ShopScreenState extends State<ShopScreen> {
                   decoration: BoxDecoration(
                     color: Color(int.parse(Categories[index].colorcode),),
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)
+                      // border: Border.all(color: Colors.grey)
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
