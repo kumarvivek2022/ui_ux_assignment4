@@ -199,7 +199,7 @@ class _ShopScreenState extends State<ShopScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(Categories[index].price,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                                Text("\$" + Categories[index].price,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                             SizedBox(width: 15,),
                             FloatingActionButton(
                               mini: true,
@@ -256,8 +256,9 @@ class _ShopScreenState extends State<ShopScreen> {
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => DescriptionScreen(Categories: Categories[index]),
-                ));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => DescriptionScreen(
+                                Categories: Categories[index]),
+                          ));
               },
               child: Container(
                 height: 200,
@@ -372,8 +373,19 @@ class _ShopScreenState extends State<ShopScreen> {
                           ),
                           child: Column(
                             children: [
-                              Image.network(Categories[index].nonvegimage,
-                                height: 100,width: 150,fit: BoxFit.cover,),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  height: 80,
+                                  width: 140,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image.network(Categories[index].nonvegimage,
+                                     // height: 100,width: 150,
+                                      fit: BoxFit.cover,),
+                                  ),
+                                ),
+                              ),
                               Text(Categories[index].nonvegtitle,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
                               Text(Categories[index].subtitle,style: TextStyle(fontSize: 12,fontWeight: FontWeight.normal),),
                               Row(

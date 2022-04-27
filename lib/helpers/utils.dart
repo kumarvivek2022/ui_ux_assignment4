@@ -16,6 +16,8 @@ List <Category> Categories =[
         nonvegprice: '4.99',
         nonvegtitle: 'Beef Bone',
         colorcode: '0xFFE8F5E9',
+        vegdetail: 'Red bell peppers are a smooth-skinned variety with uniformly colored skin and a partial stem attached. Displaying three to four thick-walled lobes, the pepper has internal ribbing and seeds, which are discarded before use. Similar in flavor to a Yellow or Orange bell pepper, the Red bell has a mild, sweet pepper flavor with a crisp-firm texture.',
+
 
     ),
     Category(
@@ -32,6 +34,7 @@ List <Category> Categories =[
       nonvegimage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFU5326UgN5C3SoEdXZBPAU46tc1o1BWJXhA&usqp=CAU',
       nonvegtitle: 'Broiler Chicken',
       colorcode: '0xFFE6EE9C',
+      vegdetail: 'Light and fluffy rotis are guaranteed, with the asli phulke wala atta! Made with the finest wheat crops, Fortune Chakki Fresh Atta ensures with every meal your loved ones say, ek phulka aur.',
     ),
     Category(
       urlImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCcqHhjcrdFPZuZiCBCg4K4aMc98gKE_OD4Q&usqp=CAU',
@@ -47,6 +50,7 @@ List <Category> Categories =[
         nonvegprice: '4.56',
         nonvegsubtitle: '1 kg,price',
         colorcode: '0xFFFCE4EC',
+      vegdetail: 'Coriander is native to southwestern Asia west to north Africa. It is a soft, hairless, foetid plant growing to 50 cm tall. The leaves are variable in shape, broadly lobed at the base of the plant, and slender and feathery higher on the flowering stems.',
     ),
     Category(
       urlImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTum0osxIZ5U88E0nvk5U70P9mKVXD2oFW34w&usqp=CAU',
@@ -62,6 +66,7 @@ List <Category> Categories =[
       nonvegprice: '4.99',
       nonvegimage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn5qcF-SvE2wrHLuWVLikjxjwMEzjGIl-QaQ&usqp=CAU',
       colorcode: '0xFFFFD740',
+      vegdetail: 'Tata Tea Ltd. is one of India leading tea companies and is the second largest supplier of branded tea in the world. Vertically integrated, Tata Tea produces 40 million kilograms on 18,000 hectares on about three dozen plantations in India and Sri Lanka.',
     ),
 
   ];

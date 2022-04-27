@@ -5,6 +5,7 @@ class Category{
   final String price;
   final String vegimage;
   final String vegtitle;
+  final String vegdetail;
   final String groceryimage;
   final String grocerytitle;
   final String nonvegimage;
@@ -23,6 +24,7 @@ class Category{
     required this.price,
          required this.vegimage,
          required this.vegtitle,
+         required this.vegdetail,
          required this.groceryimage,
          required this.grocerytitle,
          required this.nonvegimage,

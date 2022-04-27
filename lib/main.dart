@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ui_ux_assignment4/screen/bottom_navigation_screen/bottom_navigation_screen.dart';
 import 'package:ui_ux_assignment4/screen/welcome_screen//welcome_screen.dart';
 
 void main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const WelcomeScreen(),
+      home: const BottomNavigationScreen(),
     );
   }
 }

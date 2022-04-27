@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_ux_assignment4/helpers/utils2.dart';
-import 'package:ui_ux_assignment4/model_class/mode_class2.dart';
+import 'package:ui_ux_assignment4/model_class/model_class2.dart';
 import 'package:ui_ux_assignment4/screen/explore_screen/explore_screen_details.dart';
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({Key? key}) : super(key: key);

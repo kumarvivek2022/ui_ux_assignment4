@@ -18,6 +18,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
 
           Image.network(widget.Categories.vegimage),
           Text(widget.Categories.vegtitle),
+          Text(widget.Categories.vegdetail),
         ],
       )
     );
