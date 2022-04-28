@@ -1,7 +1,8 @@
 import 'model_class2.dart';
 
 class SubGrid extends Explore {
-  SubGrid({required String gridimage,
+  SubGrid({
+    required String gridimage,
     required String gridtitle,
     required String gridcolor,
     required String gridsubtitle,

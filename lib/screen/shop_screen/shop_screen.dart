@@ -63,14 +63,14 @@ class _ShopScreenState extends State<ShopScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
                   decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey.shade300,
-                    focusColor: Colors.grey.shade300,
-                    prefixIcon: Icon(Icons.search,color: Colors.black,),
-                    hintText: "Search Store",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                    prefixIcon: Icon(Icons.search),
+                      hintText: 'Search store',
+                      filled: true,
+                      fillColor: Colors.grey.shade300,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      )
                   ),
                 ),
               ),

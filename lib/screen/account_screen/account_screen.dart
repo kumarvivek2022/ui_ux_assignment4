@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_ux_assignment4/screen/registration_screen/registration_screen.dart';
 class AccountScreen extends StatefulWidget {
@@ -107,8 +106,8 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.black.withOpacity(0.1),
-                      onPrimary: Colors.green,
+                      elevation: 0,
+                      primary: Colors.black.withOpacity(0.2),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -121,7 +120,13 @@ class _AccountScreenState extends State<AccountScreen> {
                             builder: (context) => const RegistrationScreen(),
                           ));
                     },
-                    child: Text("Log out")),
+                    child: Row(
+                      children: [
+                        Icon(Icons.logout, color: Colors.green,),
+                        SizedBox(width: 100,),
+                        Text("Log out", style: TextStyle(color: Colors.green),),
+                      ],
+                    )),
               ),
             )
           ],
